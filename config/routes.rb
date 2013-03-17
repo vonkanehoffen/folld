@@ -1,7 +1,7 @@
 Folld::Application.routes.draw do
   get 'tags/:tag', to: 'links#index', as: :tag
   resources :links
-
+  root to: 'links#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
