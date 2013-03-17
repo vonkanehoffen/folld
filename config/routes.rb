@@ -1,4 +1,6 @@
 Folld::Application.routes.draw do
+  devise_for :users
+
   get 'tags/:tag', to: 'links#index', as: :tag
   resources :links
   root to: 'links#index'
