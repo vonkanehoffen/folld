@@ -1,4 +1,5 @@
 Folld::Application.routes.draw do
+  get 'tags/:tag', to: 'links#index', as: :tag
   resources :links
 
 
