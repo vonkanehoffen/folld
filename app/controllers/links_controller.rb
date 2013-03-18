@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     if params[:tag]
       @links = Link.tagged_with(params[:tag]).page params[:page]
     else
-      @links = Link.order(:updated_at).page params[:page]
+      @links = Link.order('updated_at desc').includes(:user).page params[:page]
     end
   end
 
