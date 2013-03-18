@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
-  # attr_accessible :title, :body
 
   validates_presence_of :username
+  validates_exclusion_of :username, :in => %w(tag admin user users), :message => 'Sorry, that user name is reserved.'
+  # Note: %w is shorthand for ['some', 'thing']
 
   has_many :links
 end
