@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'kaminari'
