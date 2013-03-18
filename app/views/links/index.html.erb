@@ -13,6 +13,7 @@
     <th>Description</th>
     <th>Tags</th>
     <th>Private</th>
+    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,6 +26,7 @@
     <td><%= link.description %></td>
     <td>Tags: <%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
     <td><%= link.private %></td>
+    <td><%= link.user %></td>
     <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
     <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
