@@ -1,9 +1,15 @@
 Folld::Application.routes.draw do
   devise_for :users
 
-  get 'tags/:tag', to: 'links#index', as: :tag
+  get 'tag/:tag', to: 'links#index', as: :tag
   resources :links
   root to: 'links#index'
+  
+  # Find by user name
+  match '/:username' => 'links#index', :as => :user_links
+
+  # Find by user name and tag
+  match '/:username/:tag' => 'links#index', :as => :user_links_by_tag
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

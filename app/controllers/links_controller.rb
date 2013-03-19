@@ -5,7 +5,11 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    if params[:tag]
+    if params[:username] && params[:tag]
+      @links = User.find_by_username(params[:username]).links.tagged_with(params[:tag]).order('updated_at desc').page params[:page]
+    elsif params[:username]
+      @links = User.find_by_username(params[:username]).links.order('updated_at desc').page params[:page]
+    elsif params[:tag]
       @links = Link.tagged_with(params[:tag]).page params[:page]
     else
       @links = Link.order('updated_at desc').includes(:user).page params[:page]
