@@ -9,7 +9,7 @@ class LinksController < ApplicationController
       @links = User.find_by_username(params[:username]).links.tagged_with(params[:tag]).order('updated_at desc').page params[:page]
     elsif params[:username]
       @links = User.find_by_username(params[:username]).links.order('updated_at desc').page params[:page]
-    elsif params[:tag]
+    elsif params[:tag] && !params[:tag].empty?
       @links = Link.tagged_with(params[:tag]).page params[:page]
     else
       @links = Link.order('updated_at desc').includes(:user).page params[:page]

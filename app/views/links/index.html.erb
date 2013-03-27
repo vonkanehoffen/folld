@@ -1,5 +1,12 @@
 <h1>Listing links</h1>
 
+<%= form_tag links_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :tag, params[:tag] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <div id="tag_cloud">
   <% tag_cloud Link.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
