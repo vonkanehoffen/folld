@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<h1><%= link_to 'Folld', root_path %></h1>
+
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to 'Edit profile', edit_user_registration_path %> |
