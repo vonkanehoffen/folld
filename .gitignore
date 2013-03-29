@@ -16,3 +16,6 @@
 
 # Ignore Node Modules managed by NPM
 /node_modules
+
+# Ignore design stuff - no point in versioning Photoshop files
+/doc/design
