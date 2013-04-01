@@ -5,7 +5,7 @@
   </p>
 <% end %>
 
-<%= link_to 'New Link', new_link_path %>
+<%= link_to 'New Link', new_link_path, :id => 'add_new_link', :remote => true %>
 
 <div id="tag_cloud">
   <% tag_cloud Link.tag_counts, %w[s m l] do |tag, css_class| %>
@@ -13,9 +13,11 @@
   <% end %>
 </div>
 
+<div id="links">
 <% @links.each do |link| %>
   <%= render link %>
 <% end %>
+</div>
 
 <br />
 <%= paginate @links %>

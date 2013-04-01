@@ -1,0 +1,8 @@
+console.log("create.js.erb called");
+<% if @link.save %>
+	$('#new_link').remove();
+	$('#add_new_link').show();
+	$('#links').prepend('<%= j render(@link) %>');
+<% else %>
+	$('#new_link').html('<%= j render("form") %>');
+<% end %>
