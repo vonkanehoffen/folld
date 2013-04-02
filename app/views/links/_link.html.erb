@@ -4,6 +4,8 @@
     <p>Tags: <%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
     <p><%= link.private %></p>
     <p><%= link.user.username rescue "No user" %></p>
-    <p><%= link_to 'Edit', edit_link_path(link), :remote => true %></p>
-    <p><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></p>
+    <% if(link.user == current_user) %>
+	    <p><%= link_to 'Edit', edit_link_path(link), :remote => true %></p>
+	    <p><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></p>
+	<% end %>
 </div>

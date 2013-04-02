@@ -1,2 +1,4 @@
 <%= render :partial => 'shared/flash_messages' %>
-$('#link_<%= @link.id %>').remove();
+<% if @destroyed %>
+	$('#link_<%= @link.id %>').remove();
+<% end %>

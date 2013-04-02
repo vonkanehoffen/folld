@@ -48,9 +48,12 @@ class LinksController < ApplicationController
   # PUT /links/1
   def update
     @link = Link.find(params[:id])
-
-    if @link.update_attributes(params[:link])
-      flash[:notice] = 'Link updated.'
+    if @link.user == current_user
+      if @link.update_attributes(params[:link])
+        flash[:notice] = 'Link updated.'
+      end
+    else
+      flash[:error] = "You can't update other people's links"
     end
     respond_with(@link)
   end
@@ -58,8 +61,13 @@ class LinksController < ApplicationController
   # DELETE /links/1
   def destroy
     @link = Link.find(params[:id])
-    @link.destroy
-    flash[:notice] = 'Link deleted.'
+    if @link.user == current_user
+      @link.destroy
+      flash[:notice] = 'Link deleted.'
+      @destroyed = true
+    else
+      flash[:error] = "You can't delete other people's links"
+    end
     respond_with(@link)
   end
 end
