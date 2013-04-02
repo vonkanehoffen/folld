@@ -2,21 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "variables";
+
 body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+a { 
+	color:$red; 
+	&:hover { color:darken($red, 10%); }
+}
+
+// Header ---------------------------------------------------------------------
+
 #site_logo {
 	display:block;
+	float:left;
+	margin:10px;
 	width:150px; height:40px;
 	background:url('/assets/folld-logo.png') top left no-repeat;
 	h1, span { display:none; }
 }
 
+#user_nav {
+	float:right;
+	margin:10px;
+}
+
+// Links ----------------------------------------------------------------------
+
+form#search {
+	margin:10px;
+}
 #main {
 	float:left;
 	margin-right:300px;
 }
+
+// Sidebar --------------------------------------------------------------------
 
 #sidebar {
 	float:right;
@@ -24,6 +47,15 @@ body {
 	margin-left:-300px;
 }
 
+#add_new_link {
+	display:block;
+	padding:5px;
+	background:$red;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+	&:hover { background:darken($red, 10%); }
+}
 #tag_cloud {
   line-height: 1.6em;
   .s { font-size: 0.8em; }
@@ -34,8 +66,10 @@ body {
 .loading { background:#f99; }
 
 .link {
-	background:#fda;
+	.title { text-decoration:none; }
 	margin:10px;
+	padding-bottom:10px;
+	border-bottom:1px dotted $red;
 	p { display:inline; }
 }
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <header>
+    <header class="clearfix">
         <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path, :id => "site_logo" %>
 
         <nav id="user_nav">

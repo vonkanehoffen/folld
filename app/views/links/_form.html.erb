@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :uri, "URL" %><br />
+    <%= f.text_field :uri, :placeholder => 'http://' %>
   </div>
   <div class="field">
-    <%= f.label :uri %><br />
-    <%= f.text_field :uri %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
