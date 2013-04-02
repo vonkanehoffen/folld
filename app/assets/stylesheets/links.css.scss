@@ -17,3 +17,16 @@
 	margin:10px;
 	p { display:inline; }
 }
+
+#flash {
+	.notice {
+		background:#2f2;
+		color:#fff;
+		font-weight:bold;
+	}
+	.error {
+		background:#d00;
+		color:#fff;
+		font-weight:bold;
+	}
+}

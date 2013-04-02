@@ -57,3 +57,11 @@ function has_transport(url) {
     if(url.match(/^https?:\/\//)) {
         return true; } else { return false; }
 }
+
+function flash(type, msg) {
+    var flash = $('<div></div>');
+    flash.addClass(type);
+    flash.html(msg);
+    $('#flash').append(flash);
+    flash.delay(1500).fadeOut();
+}
