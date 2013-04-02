@@ -51,6 +51,8 @@ $(document).ready(function(){
 // Helpers ---------------------------------------------------------------------
 
 function is_url(url) {
+    // TODO: This doesn't validate URLs like: http://www.kvraudio.com/forum/viewtopic.php?p=5238905
+    // ....and might crash chrome?
     if(url.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
         return true; } else { return false; }
 }
