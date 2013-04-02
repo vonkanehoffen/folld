@@ -1,24 +1,24 @@
 <%= form_tag links_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :tag, params[:tag] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+	<p>
+		<%= text_field_tag :tag, params[:tag] %>
+		<%= submit_tag "Search", :name => nil %>
+	</p>
 <% end %>
 
-<%= link_to 'New Link', new_link_path, :id => 'add_new_link', :remote => true %>
-
-<div id="tag_cloud">
-  <% tag_cloud Link.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
+<div id="main">
+	<div id="links">
+		<% @links.each do |link| %>
+			<%= render link %>
+		<% end %>
+	</div>
+	<%= paginate @links %>
 </div>
 
-<div id="links">
-<% @links.each do |link| %>
-  <%= render link %>
-<% end %>
+<div id="sidebar">
+	<%= link_to 'New Link', new_link_path, :id => 'add_new_link', :remote => true %>
+	<div id="tag_cloud">
+		<% tag_cloud Link.tag_counts, %w[s m l] do |tag, css_class| %>
+	    	<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+		<% end %>
+	</div>
 </div>
-
-<br />
-<%= paginate @links %>
-

@@ -5,8 +5,26 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 }
+
+#site_logo {
+	display:block;
+	width:150px; height:40px;
+	background:url('/assets/folld-logo.png') top left no-repeat;
+	h1, span { display:none; }
+}
+
+#main {
+	float:left;
+	margin-right:300px;
+}
+
+#sidebar {
+	float:right;
+	width:300px;
+	margin-left:-300px;
+}
+
 #tag_cloud {
-  width: 400px;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
