@@ -1,6 +1,6 @@
 // Folld Interface JS
 
-var xhr;
+var xhr, prev_url;
 
 $(document).ready(function(){
 	console.log("interface.js Loaded");
@@ -8,11 +8,10 @@ $(document).ready(function(){
 	// Spider URLs for Content -------------------------------------------------
     
     var link_uri = $('input#link_uri');
-    var link_title = $('input#link_title');
 
     // Add transport to URL as it's typed
     
-    link_uri.keyup(function(){
+    $('body').on('keyup', 'input#link_uri', function(){
         console.log("link_uri.keyup");
         var url = $(this).val();
         if( is_url(url) ) {
@@ -23,13 +22,16 @@ $(document).ready(function(){
         }   
 
         var url = $(this).val();
-        if (is_url(url) && has_transport(url)) {
-            get_url_meta(url);	
+        if (is_url(url) && url != prev_url) {
+            get_url_meta(url);
+            prev_url = url;
         }
     })
     
     function get_url_meta(url) {
-    	console.log("get_url_meta");
+        console.log("get_url_meta");
+        var link_title = $('input#link_title');
+
         link_title.addClass('loading');
         if(xhr) { xhr.abort(); }
         xhr = $.ajax({
