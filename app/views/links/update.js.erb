@@ -1,2 +1,2 @@
 <%= render :partial => 'shared/flash_messages' %>
-$('#link_<%= @link.id %>').html('<%= j render(@link) %>');
+$('#link_<%= @link.id %>').replaceWith('<%= j render(@link) %>');
