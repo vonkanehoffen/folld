@@ -1,5 +1,5 @@
 <div class="link" id="link_<%= link.id %>">
-	<h4><%= link_to link.title, link.uri %></h4>
+	<h4><%= link_to link.title, link.uri, :rel => 'nofollow' %></h4>
     <p><%= link.description %></p>
     <p>Tags: <%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
     <p><%= link.user.username rescue "No user" %></p>
