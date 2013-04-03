@@ -1,16 +1,11 @@
-// Place all the styles related to the Links controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-@import "variables";
 
 body {
 	font-family: 'Open Sans', sans-serif;
 }
 
 a { 
-	color:$red; 
-	&:hover { color:darken($red, 10%); }
+	color:@red; 
+	&:hover { color:darken(@red, 10%); }
 }
 
 // Header ---------------------------------------------------------------------
@@ -27,6 +22,7 @@ a {
 #user_nav {
 	float:right;
 	margin:10px;
+	font-size:0.9em;
 }
 
 // Links ----------------------------------------------------------------------
@@ -38,6 +34,22 @@ form#search {
 	float:left;
 	margin-right:300px;
 }
+.link {
+	.title { text-decoration:none; }
+	margin:10px;
+	padding-bottom:10px;
+	border-bottom:1px dotted @red;
+	.meta { font-size:0.9em; }
+		.tags, .user, .actions { display:inline; }
+		.tags a {
+			display:inline-block;
+			padding:3px 6px;
+			background:lighten(@red,30%);
+			color:#fff;
+			text-decoration: none;
+		}
+}
+
 
 // Sidebar --------------------------------------------------------------------
 
@@ -50,11 +62,11 @@ form#search {
 #add_new_link {
 	display:block;
 	padding:5px;
-	background:$red;
+	background:@red;
 	text-decoration:none;
 	font-weight:bold;
 	color:#fff;
-	&:hover { background:darken($red, 10%); }
+	&:hover { background:darken(@red, 10%); }
 }
 #tag_cloud {
   line-height: 1.6em;
@@ -65,13 +77,6 @@ form#search {
 
 .loading { background:#f99; }
 
-.link {
-	.title { text-decoration:none; }
-	margin:10px;
-	padding-bottom:10px;
-	border-bottom:1px dotted $red;
-	p { display:inline; }
-}
 
 #flash {
 	.notice {
