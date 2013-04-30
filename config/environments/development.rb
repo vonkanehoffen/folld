@@ -38,4 +38,7 @@ Folld::Application.configure do
   # Devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
+  # less-rails
+  config.assets.css_compressor = :yui
+  config.less.compress = true
 end
