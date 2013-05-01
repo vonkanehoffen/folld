@@ -12,6 +12,11 @@
     <header class="clearfix">
         <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path, :id => "site_logo" %>
 
+        <%= form_tag links_path, :id => 'search', :method => 'get' do %>
+            <%= text_field_tag :tag, params[:tag] %>
+            <%= submit_tag "Search", :name => nil %>
+        <% end %>
+
         <nav id="user_nav">
             <% if user_signed_in? %>
                 Logged in as <strong><%= current_user.email %></strong>.

@@ -1,8 +1,3 @@
-<%= form_tag links_path, :id => 'search', :method => 'get' do %>
-	<%= text_field_tag :tag, params[:tag] %>
-	<%= submit_tag "Search", :name => nil %>
-<% end %>
-
 <div id="main">
 	<div id="links">
 		<% @links.each do |link| %>
@@ -13,6 +8,6 @@
 </div>
 
 <div id="sidebar">
-	<%= link_to 'New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
+	<%= link_to '+ New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
 	<%= render :partial => 'shared/tag_cloud' %>
 </div>
