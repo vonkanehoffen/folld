@@ -19,3 +19,4 @@
 
 # Ignore design stuff - no point in versioning Photoshop files
 /doc/design
+/doc/delicious_all_bookmarks.xml

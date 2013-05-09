@@ -20,10 +20,47 @@ h1 {
 	font-size:38px;
 }
 
+// Forms Generic --------------------------------------------------------------
+
+input, textarea {
+	height:28px;
+	border:0;
+	padding:3px 7px;
+	margin:3px 0;
+	.border-radius(5px);
+}
+textarea { height:auto; }
+input[type="submit"] {
+	height:34px;
+	padding:0 10px;
+	.border-radius(5px);
+	font-family: 'Oxygen', sans-serif;
+	font-weight:700;
+	font-size:16px;
+	background:@orange;
+	color:#fff;
+	&:hover { background:darken(@orange, 10%); }
+}
+input.loading { background:#f99; }
+
+// Flash Notices --------------------------------------------------------------
+
+#flash {
+	.notice {
+		background:#2f2;
+		color:#fff;
+		font-weight:bold;
+	}
+	.error {
+		background:#d00;
+		color:#fff;
+		font-weight:bold;
+	}
+}
+
 // Header ---------------------------------------------------------------------
 
 header {
-	//background:#78b5d1;
 	padding:30px 30px 0 30px;
 }
 #site_logo {
@@ -34,34 +71,14 @@ header {
 	background:url('/assets/folld-logo2.png') top left no-repeat;
 	h1, span { display:none; }
 }
-.page_title {
-	float:left;
-	margin:0 20px 0 0;
-	color:@mgrey;
-	font-size:30px;
-	font-weight:300;
-}
 #search {
 	float:left;
 	input {
-		height:28px;
 		float:left;
-		border:0;
-		padding:3px 7px;
-		margin:3px 0;
-		//display:block;
 		.border-radius(5px 0 0 5px);
 	}
 	input[type="submit"] {
-		height:34px;
-		padding:0 10px;
 		.border-radius(0 5px 5px 0);
-		font-family: 'Oxygen', sans-serif;
-		font-weight:700;
-		font-size:16px;
-		background:@orange;
-		color:#fff;
-		&:hover { background:darken(@orange, 10%); }
 	}
 }
 
@@ -107,21 +124,18 @@ header {
 	}
 }
 
-// Links ----------------------------------------------------------------------
+// Main Content (Masonry) -----------------------------------------------------
 
 #main {
-	margin:30px;
+	margin:30px 30px 0 30px;
 }
-.block_item {
+.masonry_item { // Generic masonry container
 	float:left;
-	width:360px;
+	width:380px;
 	margin-bottom:20px;
 }
-.new_link_action {
-	background:#297;
-	width:380px;
-}
-	#add_new_link {
+
+	#add_new_link { // The button
 		display:block;
 		padding:10px;
 		background:@orange;
@@ -131,49 +145,58 @@ header {
 		text-decoration:none;
 		&:hover { background:darken(@orange, 10%); }
 	}
-	#new_link {
+	#new_link { // The form
 		padding:10px;
-	}
-.link {
-	.title { 
-		margin:0;
-		font-weight:300;
-		font-size:18px;
-		a { text-decoration:none; }
-	}
-	background:#fff;
-	padding:10px;
-	padding-bottom:10px;
-	border-top:5px solid @orange;
-	.meta { font-size:0.9em; }
-		.tags, .user, .actions { display:inline; }
-		.tags a {
-			display:inline-block;
-			padding:3px 6px;
-			height:18px;
-			.border-radius(5px 0 0 5px);
-			margin-right:18px;
-			background:@lgrey;
-			color:#fff;
-			text-decoration: none;
-			position:relative;
-			&:after {
-				content: ' ';
-				width:0;
-				height:0;
-				border-top: 12px solid transparent;
-				border-bottom: 12px solid transparent;
-				border-left: 12px solid @lgrey;
-				position:absolute;
-				top:0;
-				right:-12px;
-			}
-			&:hover {
-				background:@mgrey;
-				&:after { border-left-color:@mgrey; }
-			}
+		background:@orange;
+		.border-radius(5px);
+		input[type='text'], textarea { width:346px; }
+		input[type='submit'] { 
+			background:#fff; color:@orange; 
+			&:hover { background:lighten(@orange, 30%); }
 		}
-}
+	}
+
+	.link {
+		.title { 
+			margin:0;
+			font-weight:300;
+			font-size:18px;
+			a { text-decoration:none; }
+		}
+		background:#fff;
+		width:360px;
+		padding:10px;
+		padding-bottom:10px;
+		border-top:5px solid @orange;
+		.meta { font-size:0.9em; }
+			.tags, .user, .actions { display:inline; }
+			.tags a {
+				display:inline-block;
+				padding:3px 6px;
+				height:18px;
+				.border-radius(5px 0 0 5px);
+				margin-right:18px;
+				background:@lgrey;
+				color:#fff;
+				text-decoration: none;
+				position:relative;
+				&:after {
+					content: ' ';
+					width:0;
+					height:0;
+					border-top: 12px solid transparent;
+					border-bottom: 12px solid transparent;
+					border-left: 12px solid @lgrey;
+					position:absolute;
+					top:0;
+					right:-12px;
+				}
+				&:hover {
+					background:@mgrey;
+					&:after { border-left-color:@mgrey; }
+				}
+			}
+	}
 
 // Pagination -----------------------------------------------------------------
 
@@ -196,20 +219,16 @@ header {
 	}
 }
 
-// Sidebar --------------------------------------------------------------------
+// Footer ---------------------------------------------------------------------
 
-#sidebar {
-	float:right;
-	width:240px;
-	margin-left:-300px;
-	padding:30px 30px 0 30px;
+footer {
+	padding:30px;
 }
 
-
 #tag_cloud {
+	width:300px;
 	line-height: 1.6em;
 	h3 {
-		//color:darken(@lgrey, 20%);
 		color:@mgrey;
 	}
 	a { 
@@ -221,18 +240,3 @@ header {
 	.l { font-size: 1.8em; }
 }
 
-.loading { background:#f99; }
-
-
-#flash {
-	.notice {
-		background:#2f2;
-		color:#fff;
-		font-weight:bold;
-	}
-	.error {
-		background:#d00;
-		color:#fff;
-		font-weight:bold;
-	}
-}

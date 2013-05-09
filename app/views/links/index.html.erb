@@ -2,7 +2,7 @@
 	<h1>Home</h1>
 </div>
 <div id="main">
-	<div class="block_item new_link_action">
+	<div class="masonry_item new_link_action">
 		<%= link_to '+ New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
 	</div>
 	<div id="links">
@@ -10,11 +10,11 @@
 			<%= render link %>
 		<% end %>
 	</div>
-	<div class="block_item">
+	<div class="masonry_item">
 		<%= paginate @links %>
 	</div>
 </div>
 
-<div id="sidebar">
+<footer>
 	<%= render :partial => 'shared/tag_cloud' %>
-</div>
+</footer>

@@ -48,7 +48,7 @@ $(document).ready(function(){
     }
 
     $('#main').masonry({
-        itemSelector: '.block_item',
+        itemSelector: '.masonry_item',
         gutterWidth: 20
     });
 

@@ -7,3 +7,4 @@ console.log("create.js.erb called");
 <% else %>
 	$('#new_link').html('<%= j render("form") %>');
 <% end %>
+$('#main').masonry('reload');
