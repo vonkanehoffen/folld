@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Folld</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:700,300' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -11,20 +11,18 @@
 
     <header class="clearfix">
         <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path, :id => "site_logo" %>
-
         <%= form_tag links_path, :id => 'search', :method => 'get' do %>
             <%= text_field_tag :tag, params[:tag] %>
-            <%= submit_tag "Search", :name => nil %>
+            <%= submit_tag "Go", :name => nil %>
         <% end %>
 
         <nav id="user_nav">
             <% if user_signed_in? %>
-                Logged in as <strong><%= current_user.email %></strong>.
-                <%= link_to 'My Links', user_links_path(current_user.username) %> |
-                <%= link_to 'Edit profile', edit_user_registration_path %> |
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <div class="logged_in_as">Logged in as <%= link_to current_user.email, edit_user_registration_path %></div>
+                <%= link_to 'My Links', user_links_path(current_user.username) %>
+                <%= link_to "Logout", destroy_user_session_path, :class => 'logout', method: :delete %>
             <% else %>
-                <%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Sign up", new_user_registration_path %>
                 <%= link_to "Login", new_user_session_path %>
             <% end %>
         </nav>

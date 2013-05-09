@@ -46,6 +46,12 @@ $(document).ready(function(){
             }
         })
     }
+
+    $('#main').masonry({
+        itemSelector: '.block_item',
+        gutterWidth: 20
+    });
+
 })
 
 // Helpers ---------------------------------------------------------------------
@@ -53,6 +59,7 @@ $(document).ready(function(){
 function is_url(url) {
     // TODO: This doesn't validate URLs like: http://www.kvraudio.com/forum/viewtopic.php?p=5238905
     // ....and might crash chrome?
+    // And this: http://www.google.com/fonts/#QuickUsePlace:quickUse/Family:
     if(url.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
         return true; } else { return false; }
 }

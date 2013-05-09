@@ -1,5 +1,5 @@
-<div class="link" id="link_<%= link.id %>">
-	<h4><%= link_to link.title, link.uri, :class => 'title', :rel => 'nofollow' %></h4>
+<div class="link block_item" id="link_<%= link.id %>">
+	<h4 class="title"><%= link_to link.title, link.uri, :rel => 'nofollow' %></h4>
 	<div class="meta">
 	    <p><%= link.description %></p>
 	    <div class="tags"><%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>

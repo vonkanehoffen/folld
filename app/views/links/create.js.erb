@@ -1,7 +1,7 @@
 console.log("create.js.erb called");
 <%= render :partial => 'shared/flash_messages' %>
 <% if @link.save %>
-	$('#new_link').remove();
+	$('#new_link').remove(); // Remove Form
 	$('#add_new_link').show();
 	$('#links').prepend('<%= j render(@link) %>');
 <% else %>

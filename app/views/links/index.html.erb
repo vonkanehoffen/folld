@@ -1,13 +1,20 @@
+<div id="title_bar">
+	<h1>Home</h1>
+</div>
 <div id="main">
+	<div class="block_item new_link_action">
+		<%= link_to '+ New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
+	</div>
 	<div id="links">
 		<% @links.each do |link| %>
 			<%= render link %>
 		<% end %>
 	</div>
-	<%= paginate @links %>
+	<div class="block_item">
+		<%= paginate @links %>
+	</div>
 </div>
 
 <div id="sidebar">
-	<%= link_to '+ New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
 	<%= render :partial => 'shared/tag_cloud' %>
 </div>
