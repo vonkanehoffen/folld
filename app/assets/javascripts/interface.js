@@ -47,14 +47,27 @@ $(document).ready(function(){
         })
     }
 
+    // Setup masonry layout ---------------------------------------------------
+
     $('#main').masonry({
         itemSelector: '.masonry_item',
         gutterWidth: 20
     });
 
+    // Add non-UJS interface handlers -----------------------------------------
+
+    $('a#add_new_link').on('click', function(){
+        if($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            $('form#new_link').remove();
+            reload_masonry();
+            return false;
+        }
+    });
+
 })
 
-// Helpers ---------------------------------------------------------------------
+// Helpers --------------------------------------------------------------------
 
 function is_url(url) {
     // TODO: This doesn't validate URLs like: http://www.kvraudio.com/forum/viewtopic.php?p=5238905
@@ -75,4 +88,8 @@ function flash(type, msg) {
     flash.html(msg);
     $('#flash').append(flash);
     flash.delay(1500).fadeOut();
+}
+
+function reload_masonry() {
+    $('#main').masonry('reload');
 }

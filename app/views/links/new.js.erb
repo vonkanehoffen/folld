@@ -1,3 +1,4 @@
 <%= render :partial => 'shared/flash_messages' %>
-$('#add_new_link').hide().after('<%= j render("form") %>');
-$('#main').masonry('reload');
+
+$('#add_new_link').addClass('active').after('<%= j render("form") %>');
+reload_masonry();

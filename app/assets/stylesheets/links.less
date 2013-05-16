@@ -144,16 +144,16 @@ header {
 		color:#fff;
 		text-decoration:none;
 		&:hover { background:darken(@orange, 10%); }
-	}
-	#new_link { // The form
-		padding:10px;
-		background:@orange;
-		.border-radius(5px);
-		input[type='text'], textarea { width:346px; }
-		input[type='submit'] { 
-			background:#fff; color:@orange; 
-			&:hover { background:lighten(@orange, 30%); }
+		&.active {
+			.border-radius(5px 5px 0 0);
 		}
+
+	}
+	form#new_link { // The form
+		padding:10px;
+		background:@lgrey;
+		.border-radius(0 0 5px 5px);
+		input[type='text'], textarea { width:346px; }
 	}
 
 	.link {
