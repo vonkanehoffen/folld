@@ -1,3 +1,10 @@
-console.log("editing");
+// Hide any other forms
+$('.link').each(function(){
+	if($('.edit_link', this).length>0) {
+		$('.edit_link', this).hide();
+		$('.show', this).show();
+	}
+})
+// Show new form
 $('#link_<%= @link.id %> .show').hide().after('<%= j render("form") %>');
 reload_masonry();
