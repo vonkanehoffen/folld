@@ -1,14 +1,16 @@
 <div class="link masonry_item" id="link_<%= link.id %>">
-	<h4 class="title"><%= link_to link.title, link.uri, :rel => 'nofollow' %></h4>
-	<div class="meta">
-	    <p><%= link.description %></p>
-	    <div class="tags"><%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
-	    <div class="user"><%= link.user.username rescue "No user" %></div>
-	    <% if(link.user == current_user) %>
-	    	<div class="actions">
-		    	<%= link_to 'Edit', edit_link_path(link), :class => 'edit', :remote => true %>
-		    	<%= link_to 'Remove', link, :class => 'destroy', method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
-		    </div>
-		<% end %>
+	<div class="show">
+		<h4 class="title"><%= link_to link.title, link.uri, :rel => 'nofollow' %></h4>
+		<div class="meta">
+		    <p><%= link.description %></p>
+		    <div class="tags"><%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
+		    <div class="user"><%= link.user.username rescue "No user" %></div>
+		    <% if(link.user == current_user) %>
+		    	<div class="actions">
+			    	<%= link_to 'Edit', edit_link_path(link), :class => 'edit', :remote => true %>
+			    	<%= link_to 'Remove', link, :class => 'destroy', method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+			    </div>
+			<% end %>
+		</div>
 	</div>
 </div>

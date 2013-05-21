@@ -65,6 +65,13 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on('click', 'form.edit_link .cancel', function() {
+        $(this).parents('.link').find('.show').show();
+        $(this).parents('form').remove();
+        reload_masonry();
+        return false;
+    });
+
 })
 
 // Helpers --------------------------------------------------------------------
