@@ -28,11 +28,8 @@
             <% end %>
         </nav>
 
-        <div id="flash">
-            <% flash.each do |name, msg| %>
-                <%= content_tag :div, msg, id: "flash_#{name}" %>
-            <% end %>
-        </div>
+        <%= render 'layouts/flash_messages' %>
+        
     </header>
 
     <%= yield %>
