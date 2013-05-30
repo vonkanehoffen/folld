@@ -49,7 +49,7 @@ $(document).ready(function(){
 
     // Setup masonry layout ---------------------------------------------------
 
-    $('#main').masonry({
+    $('#main.links_view').masonry({
         itemSelector: '.masonry_item',
         gutterWidth: 20
     });
