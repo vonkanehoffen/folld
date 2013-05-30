@@ -51,7 +51,10 @@ $(document).ready(function(){
 
     $('#main.links_view').masonry({
         itemSelector: '.masonry_item',
-        gutterWidth: 20
+        //gutterWidth: 20,
+        columnWidth: function( containerWidth ) {
+            return containerWidth / 3;
+        }
     });
 
     // Add non-UJS interface handlers -----------------------------------------
