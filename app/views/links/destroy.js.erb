@@ -1,5 +1,4 @@
 <%= render :partial => 'shared/flash_messages' %>
 <% if @destroyed %>
 	$('#link_<%= @link.id %>').remove();
-	reload_masonry();
 <% end %>

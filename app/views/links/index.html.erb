@@ -2,16 +2,20 @@
 	<h1>Home</h1>
 </div>
 <div id="main" class="links_view">
-	<div class="masonry_item new_link_action">
-		<%= link_to '+ New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
-	</div>
-	<div id="links">
-		<% @links.each do |link| %>
-			<%= render link %>
-		<% end %>
-	</div>
-	<div class="masonry_item">
-		<%= paginate @links %>
+	<div class="tiles_outer">
+		<div class="tiles_inner">
+			<div class="tiles_item new_link_action">
+				<%= link_to '+ New Link', new_link_path, :id => 'add_new_link', :remote => current_user ? true : false  %>
+			</div>
+			<div id="links">
+				<% @links.each do |link| %>
+					<%= render link %>
+				<% end %>
+			</div>
+			<div class="tiles_item">
+				<%= paginate @links %>
+			</div>
+		</div>
 	</div>
 </div>
 

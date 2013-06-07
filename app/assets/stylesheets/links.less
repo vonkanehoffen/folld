@@ -137,20 +137,24 @@ header {
 	}
 }
 
-// Main Content (Masonry) -----------------------------------------------------
+// Main Content (tiles) -----------------------------------------------------
 
 #main {
-	margin:30px 30px 0 30px;
-	&.links_view {
-		margin-right:20px;
+	margin:30px 20px 0 20px;
+}
+	.tiles_outer { }
+	.tiles_inner {
+		margin:0 auto;
 	}
-}
-.masonry_item { // Generic masonry container
-	float:left;
-	//width:380px;
-	width:32%;
-	margin-bottom:20px;
-}
+		.tiles_col {
+			float:left;
+		}
+		.tiles_col>.inner {
+			margin:0 10px;
+		}
+		.tiles_item {
+			margin-bottom:20px;
+		}
 
 	#add_new_link { // The button
 		display:block;
