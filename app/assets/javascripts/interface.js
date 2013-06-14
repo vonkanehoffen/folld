@@ -23,29 +23,10 @@ $(document).ready(function(){
 
         var url = $(this).val();
         if (folld.is_url(url) && url != prev_url) {
-            get_url_meta(url);
+            folld.get_url_meta(url);
             prev_url = url;
         }
     })
-    
-    function get_url_meta(url) {
-        console.log("get_url_meta");
-        var link_title = $('input#link_title');
-
-        link_title.addClass('loading');
-        if(xhr) { xhr.abort(); }
-        xhr = $.ajax({
-            url: '/node/',
-            dataType: 'json',
-            type: 'GET',
-            data: { fn: 'scrape_title', url: url },
-            success: function(data) {
-                console.log("data: ",data);
-                link_title.val(data.title);
-                link_title.removeClass('loading');
-            }
-        })
-    }
 
     // Setup tiles layout ---------------------------------------------------
 
@@ -79,7 +60,7 @@ var folld = {
         // TODO: This doesn't validate URLs like: http://www.kvraudio.com/forum/viewtopic.php?p=5238905
         // ....and might crash chrome?
         // And this: http://www.google.com/fonts/#QuickUsePlace:quickUse/Family:
-        if(url.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)) {
+        if(url.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)\/?$/)) {
             return true; 
         } else { 
             return false; 
@@ -89,6 +70,25 @@ var folld = {
     has_transport: function(url) {
         if(url.match(/^https?:\/\//)) {
             return true; } else { return false; }
+    },
+
+    get_url_meta: function(url) {
+        console.log("get_url_meta");
+        var link_title = $('input#link_title');
+
+        link_title.addClass('loading');
+        if(xhr) { xhr.abort(); }
+        xhr = $.ajax({
+            url: '/node/',
+            dataType: 'json',
+            type: 'GET',
+            data: { fn: 'scrape_title', url: url },
+            success: function(data) {
+                console.log("data: ",data);
+                link_title.val(data.title);
+                link_title.removeClass('loading');
+            }
+        })
     },
 
     flash: function(type, msg) {
