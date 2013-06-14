@@ -14,15 +14,15 @@ $(document).ready(function(){
     $('body').on('keyup', 'input#link_uri', function(){
         console.log("link_uri.keyup");
         var url = $(this).val();
-        if( is_url(url) ) {
-            if( !has_transport(url) ) {
+        if( folld.is_url(url) ) {
+            if( !folld.has_transport(url) ) {
                 $(this).val('http://'+url);
                 url = $(this).val();
             }
         }   
 
         var url = $(this).val();
-        if (is_url(url) && url != prev_url) {
+        if (folld.is_url(url) && url != prev_url) {
             get_url_meta(url);
             prev_url = url;
         }
@@ -58,7 +58,7 @@ $(document).ready(function(){
                    
     // Add non-UJS interface handlers -----------------------------------------
 
-    $('a#add_new_link').on('click', function(){
+    $(document).on('click', 'a#add_new_link', function(){
         if($(this).hasClass('active')) {
             $(this).removeClass('active');
             $('form#new_link').remove();
@@ -66,7 +66,7 @@ $(document).ready(function(){
         }
     });
 
-    $(document).on('click', 'form.edit_link .cancel', function() {
+    $(document).on('click', 'form .cancel', function() {
         $(this).parents('.link').find('.show').show();
         $(this).parents('form').remove();
         return false;
