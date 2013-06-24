@@ -18,6 +18,7 @@
  *= require content
  *= require pagination
  *= require footer
+ *= require modal
  *= require helpers
  *
  */

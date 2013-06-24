@@ -1,0 +1,24 @@
+@import "_variables";
+@import "lib/bootstrap/mixins";
+
+// Modals -----------------------------------
+
+#modal {
+	position:fixed;
+	display:table;
+	width:100%; height:100%;
+	top:0; left:0;
+	background:rgba(0,0,0,0.5);
+	.outer {
+		display:table-cell;
+		vertical-align:middle;
+	}
+	.inner {
+		background:#fff;
+		width:70%;
+		padding:20px;
+		margin:auto;
+		.border-radius(5px);
+		.box-shadow(0 0 40px rgba(0,0,0,0.4));
+	}
+}
