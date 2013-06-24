@@ -1,0 +1,37 @@
+@import "_variables";
+@import "lib/bootstrap/mixins";
+
+// Forms Generic --------------------------------------------------------------
+
+input, textarea {
+	height:28px;
+	border:0;
+	padding:3px 7px;
+	margin:3px 0;
+	.border-radius(5px);
+}
+textarea { height:auto; }
+input[type="submit"], .actions .cancel {
+	display:inline-block;
+	height:34px;
+	line-height:34px;
+	padding:0 10px;
+	.border-radius(5px);
+	font-family: 'Oxygen', sans-serif;
+	font-weight:700;
+	font-size:16px;
+	background:@orange;
+	color:#fff;
+	cursor:pointer;
+	&:hover { background:darken(@orange, 10%); }
+}
+	.actions .cancel { 
+		background:#fff;
+		color:@orange;
+		&:hover {
+			background:#fff; 
+			color:darken(@orange, 10%); 
+		}
+	}
+input.loading { background:#f99; }
+

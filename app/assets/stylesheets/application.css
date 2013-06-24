@@ -8,10 +8,14 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require _variables
  *= require h5bp_normalize
  *= require h5bp_main
- *= require scaffolds
- *= require links
+ *= require global
+ *= require forms
+ *= require flashes
+ *= require header
+ *= require content
+ *= require pagination
+ *= require footer
  *
  */

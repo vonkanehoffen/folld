@@ -1,0 +1,22 @@
+@import "_variables";
+@import "lib/bootstrap/mixins";
+
+body {
+	font-family: 'Oxygen', sans-serif;
+	font-weight:300;
+	background:@dgrey;
+}
+
+a { 
+	color:@red; 
+	.transition(all 0.2s ease);
+	&:hover { color:darken(@red, 10%); }
+}
+
+h1 {
+	color:@mgrey;
+	font-weight:300;
+	line-height:1.3em;
+	font-size:38px;
+}
+

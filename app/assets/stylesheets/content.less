@@ -1,0 +1,102 @@
+@import "_variables";
+@import "lib/bootstrap/mixins";
+
+// Main Content (tiles) -----------------------------------------------------
+
+#main {
+	margin:30px 20px 0 20px;
+}
+	.tiles_outer { }
+	.tiles_inner {
+		margin:0 auto;
+	}
+		.tiles_col {
+			float:left;
+		}
+		.tiles_col>.inner {
+			margin:0 10px;
+		}
+		.tiles_item {
+			margin-bottom:20px;
+		}
+
+	#add_new_link { // The button
+		display:block;
+		padding:10px;
+		background:@orange;
+		.border-radius(5px);
+		font-weight:700;
+		color:#fff;
+		text-decoration:none;
+		&:hover { background:darken(@orange, 10%); }
+		&.active {
+			.border-radius(5px 5px 0 0);
+		}
+
+	}
+	form#new_link, form.edit_link { // The form
+		padding:10px;
+		background:@lgrey;
+		.border-radius(0 0 5px 5px);
+		input[type='text'], textarea { width:95%; }
+	}
+	form.edit_link { border-top:5px solid @orange; }
+
+	.link .show {
+		background:#fff;
+		//width:360px;
+		border-top:5px solid @orange;
+		.title { 
+			margin:0;
+			padding:10px;
+			font-weight:300;
+			font-size:18px;
+			a { text-decoration:none; }
+		}
+		.description {
+			padding:10px;
+		}
+		.meta { 
+			font-size:0.9em;
+			padding:7px 10px;
+			background:@lgrey;
+		}
+			.user, .tags, .actions { display:inline; }
+			.user { margin-right:10px; }
+			.tags a {
+				font:bold 12px/18px Helvetica, Arial, sans-serif;
+				display:inline-block;
+				padding:3px 6px;
+				height:18px;
+				.border-radius(5px 0 0 5px);
+				margin-right:18px;
+				background:#fff;
+				color:@mgrey;
+				text-decoration: none;
+				position:relative;
+				.transition(none);
+				&:after {
+					content: ' ';
+					width:0;
+					height:0;
+					border-top: 12px solid transparent;
+					border-bottom: 12px solid transparent;
+					border-left: 12px solid #fff;
+					position:absolute;
+					top:0;
+					right:-12px;
+				}
+				&:hover {
+					background:@mgrey;
+					color:#fff;
+					&:after { border-left-color:@mgrey; }
+				}
+			}
+			.actions { 
+				float:right; 
+				a { 
+					color:@mgrey; 
+					&:hover { color:#fff; }
+				}
+			}
+	}

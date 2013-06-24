@@ -1,0 +1,24 @@
+@import "_variables";
+@import "lib/bootstrap/mixins";
+
+// Pagination -----------------------------------------------------------------
+
+.pagination {
+	clear:both;
+	height:30px;
+	span {
+		color:@dgrey;
+		font-weight:700;
+		background:@lgrey; 
+		float:left;
+		padding:4px 6px 5px 6px;
+		margin-right:10px;
+		.border-radius(5px);
+		a { 
+			color:@dgrey; 
+			text-decoration: none;
+		}
+		&:hover { background:#fff; }
+	}
+}
+
