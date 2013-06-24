@@ -1,5 +1,5 @@
 Folld::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:sessions => "my_devise/sessions" }
 
   get 'tag/:tag', to: 'links#index', as: :tag
   resources :links
