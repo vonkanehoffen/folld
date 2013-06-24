@@ -1,0 +1,30 @@
+@import "_variables";
+@import "lib/bootstrap/mixins";
+
+// Icons --------------------------------------------
+
+.button {
+	float:left;
+	.size(24px,24px);
+	background:url('/assets/sprite.png');
+	cursor:pointer;
+	span { display:none; }
+	&:hover { opacity:0.8; }
+	&.close-white { background-position:0px -24px; }
+	&.close-grey  { background-position:-24px -24px; }
+	&.edit-white  { background-position:0px 0px; }
+	&.edit-grey   { background-position:-24px 0px; }
+}
+
+.button-small {
+	float:left;
+	.size(16px,16px);
+	background:url('/assets/sprite.png');
+	cursor:pointer;
+	span { display:none; }
+	&:hover { opacity:0.8; }
+	&.close-white { background-position:-72px -16px; }
+	&.close-grey  { background-position:-88px -16px; }
+	&.edit-white  { background-position:-72px 0px; }
+	&.edit-grey   { background-position:-88px 0px; }
+}

@@ -12,10 +12,12 @@
  *= require h5bp_main
  *= require global
  *= require forms
+ *= require icons
  *= require flashes
  *= require header
  *= require content
  *= require pagination
  *= require footer
+ *= require helpers
  *
  */
