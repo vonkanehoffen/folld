@@ -1,6 +1,6 @@
 // Folld Interface JS
 
-var xhr, prev_url;
+var get_url;
 
 $(document).ready(function(){
 	console.log("interface.js Loaded");
@@ -14,6 +14,8 @@ $(document).ready(function(){
     $('body').on('keyup', 'input#link_uri', function(){
         console.log("link_uri.keyup");
         var url = $(this).val();
+
+        // Add transport
         if( folld.is_url(url) ) {
             if( !folld.has_transport(url) ) {
                 $(this).val('http://'+url);
@@ -21,11 +23,11 @@ $(document).ready(function(){
             }
         }   
 
-        var url = $(this).val();
-        if (folld.is_url(url) && url != prev_url) {
-            folld.get_url_meta(url);
-            prev_url = url;
-        }
+        clearTimeout(get_url);
+        get_url = setTimeout(function(){
+            folld.get_url_meta(url)
+        },1000);
+
     })
 
     // Setup tiles layout ---------------------------------------------------
@@ -58,9 +60,10 @@ $(document).ready(function(){
 var folld = {
     is_url: function(url) {
         // TODO: This doesn't validate URLs like: http://www.kvraudio.com/forum/viewtopic.php?p=5238905
-        // ....and might crash chrome?
         // And this: http://www.google.com/fonts/#QuickUsePlace:quickUse/Family:
+        // None of these Regexes are really that good.....
         if(url.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)\/?$/)) {
+        //if(url.match(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[.\!\/\\w]*))?)/)) {
             return true; 
         } else { 
             return false; 
@@ -73,8 +76,7 @@ var folld = {
     },
 
     get_url_meta: function(url) {
-        console.log("get_url_meta");
-        var link_title = $('input#link_title');
+        var xhr,link_title = $('input#link_title');
 
         link_title.addClass('loading');
         if(xhr) { xhr.abort(); }
@@ -147,7 +149,6 @@ var folld = {
         },
         resize: function() {
             var outer_width = $('.tiles_outer').width();
-            console.log("outer ",outer_width);
             var col_width = Math.floor(outer_width/folld.tiles.col_count);
 
             $('.tiles_inner').width(outer_width);
