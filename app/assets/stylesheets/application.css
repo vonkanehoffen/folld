@@ -17,6 +17,7 @@
  *= require header
  *= require content
  *= require pagination
+ *= require tag_cloud
  *= require footer
  *= require modal
  *= require helpers

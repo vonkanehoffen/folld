@@ -55,6 +55,15 @@ $(document).ready(function(){
         return false;
     });
 
+    $(document).on('click', '#show-tags', function() {
+        var tags = $('#tag_cloud');
+        if(tags.is(':visible')) {
+            tags.hide();
+        } else {
+            tags.prependTo('.tiles_col:last-child .inner').show();
+        }
+    });
+
 })
 
 var folld = {

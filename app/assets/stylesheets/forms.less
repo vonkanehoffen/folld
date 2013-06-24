@@ -11,9 +11,12 @@ input, textarea {
 	.border-radius(5px);
 }
 textarea { height:auto; }
+input[type="text"], input[type="password"] {
+	border:1px solid @lgrey;
+}
 input[type="submit"], .actions .cancel {
 	display:inline-block;
-	height:34px;
+	height:36px;
 	line-height:34px;
 	padding:0 10px;
 	.border-radius(5px);
@@ -33,5 +36,14 @@ input[type="submit"], .actions .cancel {
 			color:darken(@orange, 10%); 
 		}
 	}
+label {
+	display:inline-block;
+	margin:5px 0;
+}
+
 input.loading { background:#f99; }
+
+.user_view {
+	label { color:#fff; }
+}
 
