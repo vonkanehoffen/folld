@@ -166,7 +166,7 @@ var folld = {
     },
     modal: function(html) {
         $('#modal').remove();
-        $('body').append('<div id="modal"><div class="outer"><div class="inner"><div class="button close-grey pull-right" id="close-modal"><span>Close</span></div><div class="content"></div></div></div></div>');
+        $('body').append('<div id="modal"><div class="outer"><div class="inner"><div class="icon close-grey pull-right" id="close-modal"><span>Close</span></div><div class="content"></div></div></div></div>');
         $('#modal .content').html(html);
         $('#close-modal').click(function(){
             $('#modal').remove();

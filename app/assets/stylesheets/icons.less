@@ -3,14 +3,14 @@
 
 // Icons --------------------------------------------
 
-.button, .button-small, .button-large {
+.icon, .icon-small, .icon-large {
 	float:left;
 	background:url('/assets/sprite.png');
 	cursor:pointer;
 	span { display:none; }
 	&:hover { opacity:0.8; }	
 }
-.button {
+.icon {
 	.size(24px,24px);
 	&.close-white { background-position:0px -24px; }
 	&.close-grey  { background-position:-24px -24px; }
@@ -18,15 +18,16 @@
 	&.edit-grey   { background-position:-24px 0px; }
 }
 
-.button-small {
+.icon-small {
 	.size(16px,16px);
-	&.close-white { background-position:-72px -16px; }
-	&.close-grey  { background-position:-88px -16px; }
-	&.edit-white  { background-position:-72px 0px; }
-	&.edit-grey   { background-position:-88px 0px; }
+	&.close-white { background-position:-48px -16px; }
+	&.close-grey  { background-position:-64px -16px; }
+	&.edit-white  { background-position:-48px 0px; }
+	&.edit-grey   { background-position:-64px 0px; }
 }
 
-.button-large {
+.icon-large {
 	.size(32px, 32px);
-	&.tags-grey { background-position:-104px 0; }
+	&.tags-grey { background-position:-112px 0; }
+	&.user-grey { background-position:-112px 32px; }
 }
