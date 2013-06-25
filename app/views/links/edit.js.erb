@@ -4,6 +4,10 @@ $('.link').each(function(){
 		$('.edit_link', this).hide();
 		$('.show', this).show();
 	}
-})
+});
+$('.new_link_action form').remove();
+$('.new_link_action a').removeClass('active');
+
+
 // Show new form
 $('#link_<%= @link.id %> .show').hide().after('<%= j render("form") %>');

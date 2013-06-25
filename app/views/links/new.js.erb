@@ -1,3 +1,9 @@
 <%= render :partial => 'shared/flash_messages' %>
 
+$('.link').each(function(){
+	if($('.edit_link', this).length>0) {
+		$('.edit_link', this).hide();
+		$('.show', this).show();
+	}
+});
 $('#add_new_link').addClass('active').after('<%= j render("form") %>');
