@@ -54,12 +54,17 @@
 			padding:10px;
 		}
 		.meta { 
-			font-size:0.9em;
-			padding:7px 10px;
-			background:@lgrey;
+			font-size:12px;
+			padding:7px 7px;
+			position:relative;
+			#gradient.vertical(@lgrey, #fff);
 		}
 			.user, .tags, .actions { display:inline; }
-			.user { margin-right:10px; }
+			.user { 
+				margin-right:10px; 
+				line-height:16px;
+				a { text-decoration:none; }
+			}
 			.tags a {
 				font:bold 12px/18px Helvetica, Arial, sans-serif;
 				display:inline-block;
@@ -90,7 +95,10 @@
 				}
 			}
 			.actions { 
-				float:right; 
-				.button-small { margin-left:5px; }
+				position:absolute;
+				top:5px; right:5px;
+				//display:none;
+				.icon-small { margin-left:5px; }
 			}
+		.meta:hover .actions { display:block; }
 	}
