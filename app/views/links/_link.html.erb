@@ -3,8 +3,8 @@
 		<h4 class="title"><%= link_to link.title, link.uri, :rel => 'nofollow' %></h4>
 		<div class="description"><%= link.description %></div>
 		<div class="meta">
-			<div class="user"><div class="icon-small user-grey"><span>By </span></div><%= link_to link.user.username, user_links_path(link.user.username) rescue "No user" %></div>
-		    <div class="tags"><%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
+			<div class="user"><div class="icon-small user-grey"><span>By: </span></div><%= link_to link.user.username, user_links_path(link.user.username) rescue "No user" %></div>
+		    <div class="tags"><div class="icon-small tags-grey inline"><span>Tags: </span></div><%= raw link.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
 		    <% if(link.user == current_user) %>
 		    	<div class="actions">
 			    	<%= link_to '', edit_link_path(link), :class => 'icon-small edit-grey', :title => 'Edit', :remote => true %>

@@ -56,48 +56,29 @@
 		.meta { 
 			font-size:12px;
 			padding:7px 7px;
+			height:16px;
 			position:relative;
 			#gradient.vertical(@lgrey, #fff);
+			a { text-decoration:none; }
 		}
-			.user, .tags, .actions { display:inline; }
+			.user, .tags {
+				float:left;
+				.icon-small { 
+					margin-right:5px; 
+					cursor:inherit;
+					&:hover { opacity:1; }
+				}
+				a { color:@dgrey; }
+				a:hover { text-decoration: underline; }
+			}
 			.user { 
 				margin-right:10px; 
-				line-height:16px;
-				a { text-decoration:none; }
-			}
-			.tags a {
-				font:bold 12px/18px Helvetica, Arial, sans-serif;
-				display:inline-block;
-				padding:3px 6px;
-				height:18px;
-				.border-radius(5px 0 0 5px);
-				margin-right:18px;
-				background:#fff;
-				color:@mgrey;
-				text-decoration: none;
-				position:relative;
-				.transition(none);
-				&:after {
-					content: ' ';
-					width:0;
-					height:0;
-					border-top: 12px solid transparent;
-					border-bottom: 12px solid transparent;
-					border-left: 12px solid #fff;
-					position:absolute;
-					top:0;
-					right:-12px;
-				}
-				&:hover {
-					background:@mgrey;
-					color:#fff;
-					&:after { border-left-color:@mgrey; }
-				}
+
 			}
 			.actions { 
 				position:absolute;
-				top:5px; right:5px;
-				//display:none;
+				top:7px; right:7px;
+				display:none;
 				.icon-small { margin-left:5px; }
 			}
 		.meta:hover .actions { display:block; }
