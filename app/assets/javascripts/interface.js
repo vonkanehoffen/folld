@@ -1,6 +1,6 @@
 // Folld Interface JS
 
-var get_url;
+var get_url, spinner = $("<div class='loading'></div>");
 
 $(document).ready(function(){
 	console.log("interface.js Loaded");
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
     })
 
-    // Setup tiles layout ---------------------------------------------------
+    // Setup tiles layout -----------------------------------------------------
 
     folld.tiles.init();
     folld.tiles.resize();
@@ -64,6 +64,14 @@ $(document).ready(function(){
         }
     });
 
+    // Loading spinners -------------------------------------------------------
+
+    $(document).on('ajax:beforeSend', '.tiles_item *[data-remote=true]', function() {
+        $(this).closest('.tiles_item').prepend(spinner);
+    });
+    $(document).on('ajax:complete', '.tiles_item *[data-remote=true]', function() {
+        spinner.detach();
+    })
 })
 
 var folld = {
