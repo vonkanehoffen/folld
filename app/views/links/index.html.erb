@@ -1,18 +1,3 @@
-<div id="title_bar">
-	<a href="#" class="icon-large tags-grey pull-right" id="show-tags"><span>Tags</span></a>
-	<h1>
-		<% if params[:username] then %>
-			<div class="icon-large user-grey"></div><%= params[:username] %>
-		<% end %>
-		<% if params[:tag] then %>
-			<div class="icon-large tags-grey"></div><%= params[:tag] %>
-		<% end %>
-		<%# params.inspect %>
-		<% if(!params[:username] && !params[:tag]) %>
-			Home
-		<% end %>
-	</h1>
-</div>
 <div id="main" class="links_view">
 	<div class="tiles_outer">
 		<div class="tiles_inner">

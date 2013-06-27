@@ -12,6 +12,11 @@
 
     <header class="clearfix">
         <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path, :id => "site_logo" %>
+        <% if params[:username] then %>
+            <div class="user">
+                <div class="icon-large user-grey"></div><%= params[:username] %> / 
+            </div>
+        <% end %>
         <%= form_tag links_path, :id => 'search', :method => 'get' do %>
             <%= text_field_tag :tag, params[:tag] %>
             <%= submit_tag "Go", :name => nil %>
@@ -26,6 +31,7 @@
                 <%= link_to "Sign up", new_user_registration_path %>
                 <%= link_to "Login", new_user_session_path, :remote => true %>
             <% end %>
+            <a href="#" class="icon-large tags-grey pull-right" id="show-tags"><span>Tags</span></a>
         </nav>
 
         <%= render 'layouts/flash_messages' %>
