@@ -12,10 +12,12 @@
 
     <header class="clearfix">
         <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path, :id => "site_logo" %>
+        <div class="icon-large slash-grey"></div>
         <% if params[:username] then %>
             <div class="user">
-                <div class="icon-large user-grey"></div><%= params[:username] %> / 
+                <div class="icon-large user-grey"></div><%= params[:username] %>
             </div>
+            <div class="icon-large slash-grey"></div>
         <% end %>
         <%= form_tag links_path, :id => 'search', :method => 'get' do %>
             <%= text_field_tag :tag, params[:tag] %>

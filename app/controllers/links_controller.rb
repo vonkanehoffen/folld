@@ -5,6 +5,10 @@ class LinksController < ApplicationController
   
   # GET /links
   def index
+    # TODO: Get friendly URLs on search results:
+    # http://stackoverflow.com/questions/8528288/submitting-a-rails-form-to-a-friendly-url
+    # Maybe switch to rocket tag too. for easier multiple tag searches
+    # https://github.com/bradphelan/rocket_tag
     if params[:username] && params[:tag]
       @links = User.find_by_username(params[:username]).links.tagged_with(params[:tag]).order('updated_at desc').page params[:page]
     elsif params[:username]

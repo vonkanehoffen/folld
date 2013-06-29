@@ -5,22 +5,26 @@
 
 header {
 	padding:30px 30px 0 30px;
+	input { 
+		margin:0; 
+	}
+	input[type="text"] {
+		border:none;
+		height:28px;
+	}
 	.user {
 		float:left;
-		//background: #654;
 		color:@mgrey;
 		font-weight:300;
-		line-height:40px;
-		font-size:36px;
-		margin-right:10px;
+		line-height:32px;
+		font-size:32px;
 	}
-		.icon-large { margin:4px 10px; }
+		.icon-large.user-grey { margin-right:10px; }
 }
 #site_logo {
 	display:block;
 	float:left;
-	margin-right:10px;
-	width:151px; height:40px;
+	width:101px; height:32px;
 	background:url('/assets/sprite.png') -144px 0 no-repeat;
 	h1, span { display:none; }
 }
