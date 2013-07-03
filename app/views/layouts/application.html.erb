@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Folld</title>
+    <meta name="viewport" content="width=device-width">
     <link href='http://fonts.googleapis.com/css?family=Oxygen:700,300' rel='stylesheet' type='text/css'>
     <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
     <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -11,8 +12,10 @@
 <body>
 
     <header class="clearfix">
-        <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path, :id => "site_logo" %>
-        <div class="icon-large slash-grey"></div>
+        <div id="site_logo">
+            <%= link_to content_tag(request.fullpath == '/' ? :h1 : :span, 'Folld'), root_path %>
+            <div class="icon-large slash-grey"></div>
+        </div>
         <% if params[:username] then %>
             <div class="user">
                 <div class="icon-large user-grey"></div><%= params[:username] %>
